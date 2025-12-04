@@ -1,0 +1,3 @@
+Criar uma classe
+
+php artisan make:controller MainController
