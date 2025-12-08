@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 
 class MainController extends Controller
 {
- public function index(){
-    echo "oie";
- }
+    public function index($value)
+    {
+    return view('main',['value'=>$value]);
+    }
 }
