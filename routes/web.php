@@ -23,5 +23,6 @@ Route::get('/olaMundo', function () {
 Route::get('/main/{value}',[MainController::class,'index']);
 
 //rotas de autenticação
-Route::get('/login',[AuthController::class,'login']);
-Route::get('/logout',[AuthController::class,'logout']);
+Route::get( '/login',[AuthController::class,'login']);
+Route::post('/loginSubmit',[AuthController::class,'loginSubmit']);
+Route::get( '/logout',[AuthController::class,'logout']);

@@ -7,7 +7,11 @@ use Illuminate\Http\Request;
 class AuthController extends Controller
 {
    public function login(){
-echo 'du';
+    return view ('login');
+   }
+
+   public function loginSubmit(Request $request){
+    echo 'logi';
    }
 
    public function logout(){
