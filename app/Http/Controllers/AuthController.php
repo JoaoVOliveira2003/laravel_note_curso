@@ -11,7 +11,17 @@ class AuthController extends Controller
    }
 
    public function loginSubmit(Request $request){
-    echo 'logi';
+
+    $request->validate(
+        [
+            'text_username' => 'required',
+            'text_password' => 'required'
+        ]
+    );
+
+    $nome = $request ->input('text_username');
+    echo $nome . '<br>';
+    echo $request ->input('text_password');
    }
 
    public function logout(){
