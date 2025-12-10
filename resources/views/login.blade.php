@@ -13,20 +13,23 @@
                     <!-- form -->
                     <div class="row justify-content-center">
                         <div class="col-md-10 col-12">
-                            <form action="/loginSubmit" method="post">
+                            <form action="/loginSubmit" method="post" novalidate>
                                 @csrf
                                 <div class="mb-3">
                                     <label for="text_username" class="form-label">Username</label>
-                                    <input type="text" class="form-control bg-dark text-info" name="text_username" >
+                                    <input type="email"  class="form-control bg-dark text-info" name="text_username" value="{{ old('text_username') }}">
                                 </div>
-                                basicamente é um if q se tiver dado b.o nesse campo ele mostra uma mensagem
+                                {{-- basicamente é um if q se tiver dado b.o nesse campo ele mostra uma mensagem --}}
                                 @error('text_username')
                                 <div> {{ $message }}</div>
                                 @enderror
                                 <div class="mb-3">
                                     <label for="text_password" class="form-label">Password</label>
-                                    <input type="password" class="form-control bg-dark text-info" name="text_password" >
+                                    <input type="password" class="form-control bg-dark text-info" name="text_password" value="{{ old('text_password') }}" >
                                 </div>
+                                @error('text_password')
+                                <div> {{ $message }}</div>
+                                @enderror
                                 <div class="mb-3">
                                     <button type="submit" class="btn btn-secondary w-100">LOGIN</button>
                                 </div>
@@ -41,7 +44,7 @@
 
                     {{-- erros --}}
                     {{-- qualquer erro --}}
-                    @if ($errors->any())
+                    {{-- @if ($errors->any())
                         <div class="alert alert-danger mt-3">
                             <ul class="m-0">
                                 @foreach ($errors->all() as $error )
@@ -49,8 +52,7 @@
                                 @endforeach
                             </ul>
                         </div>
-                    @endif
-
+                    @endif --}}
 
                 </div>
             </div>
