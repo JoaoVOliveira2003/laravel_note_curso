@@ -32,6 +32,14 @@
                                 @enderror
                                 <div class="mb-3">
                                     <button type="submit" class="btn btn-secondary w-100">LOGIN</button>
+
+                                    {{-- Se tiver o login error,vai mostrar a div debaixo --}}
+                                    @if (session('loginError'))
+                                        <div class="alert-danger">
+                                            {{ session('loginError')}}
+                                        </div>
+
+                                    @endif
                                 </div>
                             </form>
                         </div>
