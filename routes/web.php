@@ -7,7 +7,7 @@ primeira parte é a rota, segunda parte é o que vai acontecer quando acessar es
   2 parte: ação
   3 parte: nome da rota (opcional)
 */
-
+use App\Http\Middleware\CheckIsLogged;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
@@ -23,4 +23,12 @@ Route::get('/main/{value}',[MainController::class,'index']);
 //rotas de autenticação
 Route::get( '/login',[AuthController::class,'login']);
 Route::post('/loginSubmit',[AuthController::class,'loginSubmit']);
-Route::get( '/logout',[AuthController::class,'logout']);
+
+
+//introdução a middleware(programa que tem que passar,aquela coisa de ver se esta online)
+
+Route::middleware([CheckIsLogged::class])->group(function(){
+    Route::get('/',[MainController::class,'index']);
+    Route::get('/newNote',[MainController::class,'newNote']);
+    Route::get( '/logout',[AuthController::class,'logout']);
+});

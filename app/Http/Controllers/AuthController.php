@@ -92,6 +92,7 @@ class AuthController extends Controller
 
     public function logout() {
         //logout da aplicação
+
         //sempre que rodar isso, limpa essa variavel
         session()->forget('user');
 
