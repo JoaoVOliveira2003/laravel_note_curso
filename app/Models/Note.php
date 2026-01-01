@@ -4,10 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
+class Note extends Model
 {
-    // user vai ter vairas notes, aqui já é basicamente banco de dados
-    //Um para varios
+    //Muitos para um
     public function notes(){
         return $this->hasMany(Note::class);
     }

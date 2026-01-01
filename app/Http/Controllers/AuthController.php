@@ -84,10 +84,13 @@ class AuthController extends Controller
             ]
         ]);
 
-        echo session('user.id');
-
+        // echo session('user.id');
         // echo  '<pre>';
         // echo  $user;
+
+    // vai para a tela inicial,atravez da rota /
+    return redirect()-> to('/');
+
     }
 
     public function logout() {
