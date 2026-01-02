@@ -28,7 +28,17 @@ Route::middleware([CheckIsNotLogged::class])->group(function(){
 
 //introdução a middleware(programa que tem que passar,aquela coisa de ver se esta online)
 Route::middleware([CheckIsLogged::class])->group(function(){
+
     Route::get('/',[MainController::class,'index'])->name('home');
-    Route::get('/newNote',[MainController::class,'newNote'])->name('new');
     Route::get( '/logout',[AuthController::class,'logout'])->name('logout');
+
+    Route::get('/editNote/{id}',[MainController::class,'editNote'])->name('edit');
+    Route::post('/editNoteSubmit',[MainController::class,'editNoteSubmit'])->name('editNoteSubmit');
+
+    Route::get('/deleteNote/{id}',[MainController::class,'deleteNote'])->name('delete');
+    Route::get('/deleteNoteConfirm/{id}',[MainController::class,'deleteNoteConfirm'])->name('deleteConfirm');
+
+
+    Route::get('/newNote',[MainController::class,'newNote'])->name('new');
+    Route::post('/newNoteSubmit',[MainController::class,'newNoteSubmit'])->name(name: 'newNoteSubmit');
 });

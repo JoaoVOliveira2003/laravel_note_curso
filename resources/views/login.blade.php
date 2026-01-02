@@ -38,8 +38,8 @@
                                         <div class="alert-danger">
                                             {{ session('loginError')}}
                                         </div>
-
                                     @endif
+
                                 </div>
                             </form>
                         </div>
